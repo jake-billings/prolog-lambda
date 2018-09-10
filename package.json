@@ -1,0 +1,54 @@
+{
+  "name": "prolog-lambda",
+  "version": "1.0.0",
+  "description": "This repository is intended to demonstrate the feasibility of using Prolog to implement business logic in the oddly-specific use case of AWS microservice architecture with GitLab pipelines for continuous deployment.",
+  "main": "index.js",
+  "repository": "git@github.com:jake-billings/prolog-lambda.git",
+  "author": "jakebillings <jake@jakebillings.com>",
+  "license": "MIT",
+  "private": true,
+  "engine": "8.11.3",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint src/**/*.js",
+    "build:docs": "apidoc -i src/ -o docs/",
+    "build:transpile": "babel --presets es2015 src --out-dir dist",
+    "build": "yarn build:transpile && yarn build:docs",
+    "test": "mocha --require babel-core/register --exit ./test/**/*.spec.js",
+    "test:health": "mocha --require babel-core/register --exit ./health/**/*.health.js",
+    "deploy:create": "yarn build:transpile && claudia create --region us-east-1 --handler dist/index.handler",
+    "deploy:update": "yarn build:transpile && claudia update --use-local-dependencies",
+    "deploy": "yarn deploy:update"
+  },
+  "devDependencies": {
+    "apidoc": "^0.17.6",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-inline-import": "^3.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.1.2",
+    "chai-things": "^0.2.0",
+    "claudia": "^5.1.0",
+    "eslint": "^5.2.0",
+    "eslint-mocha": "^0.4.0",
+    "eslint-plugin-chai": "^0.0.1",
+    "eslint-plugin-eslint-comments": "^2.0.2",
+    "eslint-plugin-mocha": "^5.0.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-notice": "^0.7.7",
+    "eslint-plugin-optimize-regex": "^1.1.5",
+    "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-typelint": "^1.0.9",
+    "eslint-plugin-unicorn": "^4.0.3",
+    "jsonfile": "^4.0.0",
+    "lambda-tester": "^3.5.0",
+    "mocha": "^5.2.0",
+    "node-fetch": "^2.2.0"
+  },
+  "dependencies": {
+  }
+}
