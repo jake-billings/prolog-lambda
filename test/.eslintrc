@@ -1,0 +1,12 @@
+{
+    "plugins": [
+        "mocha",
+        "chai"
+    ],
+    "env": {
+        "mocha": true,
+        "node": true,
+        "es6": true
+    },
+    "extends": "plugin:mocha/recommended"
+}
