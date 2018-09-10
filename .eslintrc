@@ -1,0 +1,88 @@
+{
+  "root": true,
+  "plugins": [
+    "typelint",
+    "optimize-regex",
+    "unicorn",
+    "notice"
+  ],
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "rules": {
+    "indent": [
+      "error",
+      4,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-console": [
+      "error",
+      {
+        "allow": [
+          "warn",
+          "error",
+          "info"
+        ]
+      }
+    ],
+    "typelint/typelint": 2,
+    "optimize-regex/optimize-regex": 1,
+    "unicorn/catch-error-name": [
+      "error",
+      {
+        "name": "err"
+      }
+    ],
+    "unicorn/no-abusive-eslint-disable": "error",
+    "unicorn/no-process-exit": "error",
+    "unicorn/throw-new-error": "error",
+    "unicorn/number-literal-case": "error",
+    "unicorn/escape-case": "error",
+    "unicorn/no-array-instanceof": "error",
+    "unicorn/no-new-buffer": "error",
+    "unicorn/no-hex-escape": "error",
+    "unicorn/custom-error-definition": "off",
+    "unicorn/prefer-starts-ends-with": "error",
+    "unicorn/prefer-type-error": "error",
+    "unicorn/no-fn-reference-in-iterator": "off",
+    "unicorn/import-index": "error",
+    "unicorn/new-for-builtins": "error",
+    "unicorn/regex-shorthand": "error",
+    "unicorn/prefer-spread": "error",
+    "unicorn/error-message": "error",
+    "unicorn/no-unsafe-regex": "off",
+    "unicorn/prefer-add-event-listener": "error",
+    "notice/notice": [
+      "error",
+      {
+        "templateFile": "notice.js"
+      }
+    ],
+    "handle-callback-err": "error"
+  }
+}
