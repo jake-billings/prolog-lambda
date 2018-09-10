@@ -1,0 +1,7 @@
+{
+  "lambda": {
+    "role": "prolog-lambda-executor",
+    "name": "prolog-lambda",
+    "region": "us-east-1"
+  }
+}
